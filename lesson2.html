@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson-2- Decomposition of Finite Abelian Groups</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #2ecc71;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .lesson-container {
+            width: 80%;
+            max-width: 900px;
+            margin: 30px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h2, h3, h4 {
+            color: #2ecc71;
+        }
+        ol, ul {
+            margin-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        code {
+            background-color: #e0f7fa;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+        .example {
+            background-color: #e0f7fa;
+            border-left: 5px solid #006064;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        a {
+            color: #2ecc71;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .lesson-buttons a {
+            display: inline-block;
+            margin: 20px 10px 0 0;
+            padding: 10px 20px;
+            background: #2ecc71;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .lesson-buttons a:hover {
+            background: #2ecc71;
+        }
+        
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Lesson 2</h1>
+    <p>Decomposition of Finite Abelian Groups</p>
+    <a href="index.html" class="home-btn">Home</a>
+</header>
+
+<div class="lesson-container">
+
+    <h2>Definition (Direct Product of Groups)</h2>
+    <p>
+        Let <b>G₁</b> and <b>G₂</b> be two groups with operations <b>*₁</b> and <b>*₂</b> respectively.
+        The <b>direct product</b> of G₁ and G₂ is the set:
+    </p>
+    <p><code>G₁ × G₂ = { (g₁, g₂) | g₁ ∈ G₁, g₂ ∈ G₂ }</code></p>
+    <p>with the operation defined component-wise:</p>
+    <p><code>(g₁, g₂) · (h₁, h₂) = (g₁ *₁ h₁, g₂ *₂ h₂)</code></p>
+
+    <h3>Properties</h3>
+    <ul>
+        <li>If G₁ and G₂ are abelian, then G₁ × G₂ is also abelian.</li>
+        <li>The identity element is (e₁, e₂), where e₁ and e₂ are the identities of G₁ and G₂.</li>
+        <li>The inverse of (g₁, g₂) is (g₁⁻¹, g₂⁻¹).</li>
+        <li>The order of the direct product is <code>|G₁ × G₂| = |G₁| · |G₂|</code>.</li>
+    </ul>
+
+    <h3>Example</h3>
+    <div class="example">
+        <p><code>ℤ₂ × ℤ₃ = { (0,0), (0,1), (0,2), (1,0), (1,1), (1,2) }</code></p>
+        <p>Addition is modulo 2 in the first component and modulo 3 in the second.</p>
+    </div>
+
+    <h2>Fundamental Theorem of Finite Abelian Groups</h2>
+    <h3>Theorem</h3>
+    <p>
+        Let G be a finite abelian group of order n. Then G can be expressed uniquely as a direct product
+        of cyclic groups of prime-power order.
+    </p>
+
+    <h3>Primary Decomposition</h3>
+    <p>
+        Let G be a finite abelian group. Then G can be expressed as a direct product of cyclic groups
+        whose orders are powers of prime numbers:
+    </p>
+    <p><code>G ≅ ℤ_{p₁^{k₁}} × ℤ_{p₂^{k₂}} × ... × ℤ_{pᵣ^{kᵣ}}</code></p>
+    <p>where p₁, p₂, …, pᵣ are primes and k₁, k₂, …, kᵣ are positive integers.</p>
+
+    <h3>Invariant Factor Decomposition</h3>
+    <p>
+        G can also be expressed as:
+    </p>
+    <p><code>G ≅ ℤ_{n₁} × ℤ_{n₂} × ... × ℤ_{nᵣ}</code></p>
+    <p>where n₁, n₂, …, nᵣ are positive integers such that:</p>
+    <p><code>n₁ | n₂ | ... | nᵣ</code></p>
+
+    <h2>Examples of Decomposition </h2>
+
+    <div class="example">
+        <p><strong>Group of order 12:</strong> |G| = 12 = 2² · 3</p>
+        <p>Primary Decomposition: <code>G ≅ ℤ₄ × ℤ₃</code></p>
+        <p>Invariant Factor Decomposition: <code>G ≅ ℤ₂ × ℤ₆</code></p>
+    </div>
+
+    <div class="example">
+        <p><strong>Group of order 8:</strong> |G| = 8 = 2³</p>
+        <p>Primary Decomposition: <code>ℤ₈, ℤ₄ × ℤ₂, ℤ₂ × ℤ₂ × ℤ₂</code></p>
+        <p>Invariant Factor Decomposition: <code>ℤ₈, ℤ₂ × ℤ₄, ℤ₂ × ℤ₂ × ℤ₂</code></p>
+    </div>
+
+    <div class="lesson-2-buttons">
+    <a href="index.html" >
+        <button>Back to Home</button>
+    </a>
+   
+
+</div>
+
+</body>
+</html>

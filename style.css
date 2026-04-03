@@ -1,0 +1,167 @@
+body{
+font-family: Arial, sans-serif;
+margin:0;
+background:linear-gradient(135deg,#e3f2fd,#e8f5e9);
+text-align:center;
+}
+
+header{
+padding:40px;
+background:#004d40;
+color:white;
+}
+
+header p{
+margin-top:10px;
+}
+
+.container{
+width:80%;
+margin:50px auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+}
+
+.card{
+padding:35px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 15px 30px rgba(0,0,0,0.2);
+}
+
+.card1{
+background:#bbdefb;
+}
+
+.card2{
+background:#c8e6c9;
+}
+
+.card3{
+background:#ffe0b2;
+}
+
+.card4{
+background:#f8bbd0;
+}
+
+.card h2{
+margin-bottom:10px;
+}
+
+.card a{
+display:inline-block;
+margin-top:15px;
+padding:10px 25px;
+background:#006064;
+color:white;
+text-decoration:none;
+border-radius:8px;
+font-weight:bold;
+}
+
+.card a:hover{
+background:#00838f;
+}
+
+footer{
+margin-top:40px;
+padding:20px;
+background:#004d40;
+color:white;
+}
+/* Header */
+.main-header {
+    background-color: #006064;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* محتوى داخل Header */
+.header-content {
+    width: 80%;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+}
+.lesson-buttons {
+    text-align: center;       /* الأزرار في الوسط */
+    margin: 30px 0;           /* مسافة عن الدرس */
+}
+
+.lesson-1- btn {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 12px 25px;
+    background: #3498db;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.lesson-2- btn {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 12px 25px;
+    background: #2ecc71;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.lesson-3- btn {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 12px 25px;
+    background:#e74c3c ;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.lesson-4- btn {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 12px 25px;
+    background: #f1c40f;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.lesson-container.lesson-1 {
+    background-color: #3498db; /* Blue */
+}
+
+/* Default card colors for each lesson */
+.lesson-1 { --card-color: #3498db; }
+.lesson-2 { --card-color: #2ecc71; }
+.lesson-3 { --card-color: #e74c3c; }
+.lesson-4 { --card-color: #f1c40f; }
+
+
+
+.lesson-1-btn:hover {
+    background: #3498db;
+}
+.lesson-2-btn:hover {
+    background: #2ecc71;
+}
+.lesson-3-btn:hover {
+    background: #e74c3c;
+}
+.lesson-4-btn:hover {
+    background: #f1c40f;
+}

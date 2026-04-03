@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 1 - Priliminaries </title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .lesson-container {
+            width: 80%;
+            max-width: 900px;
+            margin: 30px auto;
+            background: White;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h2, h3 {
+            color: #3498db;
+        }
+        ol, ul {
+            margin-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        input {
+            padding: 10px;
+            width: 50%;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+       
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        blockquote {
+            margin: 15px 0;
+            padding: 10px 20px;
+            background: #3498db;
+            border-left: 5px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Lesson 1</h1>
+    <p>Priliminaries</p>
+    <a href="index.html" class="home-btn">Home</a>
+
+</header>
+
+<div class="lesson-container">
+    
+
+    <h2>Definition</h2>
+    <p>
+        A binary operation on a non-empty set <b>E</b> is an application that combines
+        two elements of <b>E</b> and provides another element of the same set.
+    </p>
+  <figure>
+  <img src="Binary operation(1)(1).png" alt="Binary operation">
+  <figcaption>Figure 1: Binary operation</figcaption>
+</figure>
+
+    <h2>Examples</h2>
+    <ol>
+        <li>The usual addition on the set of integers ℤ.</li>
+        <li>The usual multiplication on the set of real numbers ℝ.</li>
+        <li>Subtraction is <b>not</b> a binary operation on the set of natural numbers ℕ.</li>
+    </ol>
+
+    <h2>Properties of a Binary Operation ⋆</h2>
+    <ol>
+        <li>The law ⋆ is <b>associative</b> if, for all a, b, c ∈ E:
+            <code>(a ⋆ b) ⋆ c = a ⋆ (b ⋆ c)</code>.
+        </li>
+        <li>An element e ∈ E is the <b>identity element</b> of ⋆ if for any a ∈ E:
+            <code>e ⋆ a = a ⋆ e = a</code>.
+        </li>
+        <li>An element a ∈ E is <b>invertible</b> if there exists a⁻¹ ∈ E such that:
+            <code>a ⋆ a⁻¹ = a⁻¹ ⋆ a = e</code>, where e is the identity element.
+        </li>
+        <li>The law ⋆ is <b>commutative</b> if for all a, b ∈ E:
+            <code>a ⋆ b = b ⋆ a</code>.
+        </li>
+    </ol>
+
+    <h2>Groups and Abelian Groups</h2>
+
+    <h3>Definition</h3>
+    <p>
+        Let E be a non-empty set with a composition law ⋆. The pair (E, ⋆)
+        is a <b>group</b> if and only if:
+    </p>
+    <ol>
+        <li> The operation ⋆ is an internal composition law on E (a ⋆ b ∈ E for all a, b ∈ E).</li>
+        <li> The operation ⋆ is associative: <code>(a ⋆ b) ⋆ c = a ⋆ (b ⋆ c)for all a, b ,c ∈ E</code>.</li>
+        <li  The operation ⋆ has an identity element e ∈ E: <code>e ⋆ a = a ⋆ e = a</code>.</li>
+        <li>Every element a ∈ E has an inverse a⁻¹ ∈ E: <code>a ⋆ a⁻¹ = a⁻¹ ⋆ a = e</code>.</li>
+    </ol>
+
+    <h3>Abelian Group</h3>
+    <p>
+        If a ⋆ b = b ⋆ a for every pair (a, b) ∈ E, the group is called an <b>Abelian group</b>
+        (commutative group).
+    </p>
+    <h3>Examples</h3>
+    <ul>
+        <li>ℝ, ℤ, ℚ, ℂ are groups with respect to the usual addition.</li>
+        <li>ℝ*, ℚ*, ℂ* are groups with respect to the usual multiplication.</li>
+        <li>ℕ is not a group under addition because not every element has an additive inverse in ℕ.</li>
+    </ul>
+
+   <h2>Proposition</h2>
+<p>
+  Let E be a non-empty set together with a composition law *. We say that E is a group under the operation * if the following properties are satisfied:
+</p>
+<ol>
+  <li><strong>ICL (Closure)</strong>: It means a * b ∈ E for all a, b ∈ E.</li>
+  <li><strong>Associativity</strong>: It means (a * b) * c = a * (b * c) for all a, b, c ∈ E.</li>
+  <li><strong>Identity element</strong>: It means there exists e ∈ E such that a * e = a for all a ∈ E.</li>
+  <li><strong>Inverse element</strong>: It means for all a ∈ E, there exists a⁻¹> ∈ E such that a * a⁻¹ = e, where e is the identity element.</li>
+</ol>
+
+<h2>Remark</h2>
+<p>
+  This proposition is valid only if the identity element and the inverse element are found on the same side. For example, if we find the right identity element, we should find the right inverse element, not the left.
+</p>
+
+<h2>Proof</h2>
+<p>We want to prove that if a * e = a and a * a⁻¹ = e, then e * a = a and a⁻¹* a = e.</p>
+
+<p>Let a ∈ E. Then there exists a⁻¹ ∈ E such that</p>
+<p>a * a⁻¹ = e</p>
+<p>where e is the identity element. Since a⁻¹ ∈ E, there exists b ∈ E such that</p>
+<p>a⁻¹ * b = e</p>
+
+<p>Now we prove that e * a = a. Using associativity, we have:</p>
+<p>
+  e * a = e * (a * e) = e * (a * a⁻¹* b) = e * (e * b) = (e * e) * b = e * b = (a * a⁻¹) * b = a * (a⁻¹ * b) = a * e = a
+</p>
+
+<p>Thus, e * a = a.</p>
+
+<p>Next, we show that a⁻¹ * a = e. We have:</p>
+<p>
+  a⁻¹ * a = a⁻¹ * a * e = a⁻¹ * a * a⁻¹ * b = a⁻¹ * e * b = a⁻¹* b = e
+</p>
+<h2>Definition</h2>
+
+<p>
+Let E be a non-empty set together with a binary operation * on E.
+</p>
+
+<ul>
+  <li>
+    If the operation * is associative (and closed on E), then the pair 
+    (E,*) is called a <b>semigroup</b>.
+  </li>
+
+  <li>
+    If a semigroup admits an identity element, then it is called a <b>monoid</b>.
+  </li>
+</ul>
+
+
+  
+
+  
+
+  
+    
+    
+
+    
+
+<h2>Group Morphism</h2>
+
+<h3>Definition</h3>
+<p>
+Let (E, ⋆) and (S, *) be two groups. An application f : E → S is called a group morphism if, for all a,b ∈ E, we have
+</p>
+<code>f(a ⋆ b) = f(a) * f(b)</code>
+
+<h3>Definition</h3>
+<p>Let f be a group morphism from the group E to the group S. Then:</p>
+<ol>
+    <li>If E = S and (⋆ = *), then we say that f is an <b>endomorphism</b>.</li>
+    <li>If f is bijective, then we say that f is an <b>isomorphism</b>.</li>
+    <li>If f is a bijective endomorphism, then we say that f is an <b>automorphism</b>.</li>
+</ol>
+
+<h3>Properties</h3>
+<p>Let f : (G, *) → (H, ⋆) be a group morphism. Then the following properties are satisfied:</p>
+<ol>
+    <li>f(e_E) = e_S, where e_E and e_S are respectively the identity elements of E and S.</li>
+    <li>For every a ∈ E, we have f(a⁻¹) = (f(a))⁻¹.</li>
+    <li>If f is an isomorphism, then its inverse function f⁻¹ is also an isomorphism from (S, *) to (E, ⋆).</li>
+    <li>If H is a subgroup of E, then f(H) is a subgroup of S.</li>
+    <li>If T is a subgroup of S, then f⁻¹(T) is a subgroup of E.</li>
+</ol>
+
+<h2>Subgroups</h2>
+
+<h3>Definition</h3>
+<p>Let E be a group under the operation ⋆, and S be a non-empty subset of E. We say that S is a subgroup of E if it is a group itself under the operation of E.</p>
+
+<h3>Proposition</h3>
+<p>A subset S is a subgroup of E if and only if:</p>
+<ol>
+    <li>The set S is non-empty (at least contains the identity element of E).</li>
+    <li>For all pairs (a,b) ∈ S, we have a ⋆ b ∈ S.</li>
+    <li>For all a ∈ S, its inverse a⁻¹ ∈ S.</li>
+</ol>
+
+<h3>Proposition</h3>
+<p>A subset S is a subgroup of E if and only if:</p>
+<ol>
+    <li>The set S is non-empty (at least contains the identity element of E).</li>
+    <li>For all pairs (a,b) ∈ S, we have a ⋆ b⁻¹ ∈ S.</li>
+</ol>
+
+<h3>Remark</h3>
+<ul>
+    <li>The intersection of subgroups of (E, ⋆) is also a subgroup of (E, ⋆).</li>
+    <li>The union of subgroups of a group (E, ⋆) is not necessarily a subgroup of (E, ⋆).</li>
+</ul>
+
+<h2>Finite groups and finite abelian groups</h2>
+
+<h3>Definition (order of a group)</h3>
+<p>Let (E, ⋆) be a group. Its order is the number of elements of E and it is denoted by |E|.</p>
+
+<h3>Remark</h3>
+<p>The order of a group E can be finite or infinite; in the last case we say that E has infinite order.</p>
+
+<h3>Examples</h3>
+<ol>
+    <li>The set of integers ℤ has infinite order because its number of elements is infinite.</li>
+    <li>The set S = {0,1,2,3,4,5} is finite, and its order is simply the number of its elements which is 6.</li>
+</ol>
+
+<h3>Definition (order of an element)</h3>
+<p>The order of an element a in a group E is the smallest positive integer n such that aⁿ = e, where e is the identity element of E.</p>
+
+<h3>Remark</h3>
+<p>We say that an element a has infinite order if there is no positive integer n such that aⁿ = e.</p>
+
+<h3>Definition</h3>
+<ol>
+    <li>The group (E, ⋆) is said to be a finite group if it has a finite number of elements (i.e., finite order).</li>
+    <li>The group (E, ⋆) is said to be a finite abelian group if it is finite and the commutative property is satisfied.</li>
+    <li>In a finite group, every element has finite order, whereas in an infinite group, some elements can have finite order.</li>
+</ol>
+
+<h2>Cyclic groups</h2>
+
+<h3>Definition</h3>
+<p>A group E is called a cyclic group if there exists an element a ∈ E such that every element of E can be written as a power of a. The element a is called a generator of E.</p>
+
+<ul>
+    <li>If the group E is a multiplicative cyclic group, then E = ⟨a⟩ = {aⁿ | n ∈ ℤ}.</li>
+    <li>If the group E is an additive cyclic group, then E = ⟨a⟩ = {n a | n ∈ ℤ}.</li>
+</ul>
+
+<h3>Examples</h3>
+<ol>
+    <li>The group ℤ₆ = {0,1,2,3,4,5} under addition modulo 6 is cyclic and its generators are 1 or 5.</li>
+    <li>The group E = {1, i, -1, -i} under multiplication is a cyclic group of order 4 with generator i.</li>
+</ol>
+
+<h3>Remark</h3>
+<p>An integer k is a generator of the additive group ℤₙ if and only if gcd(n,k) = 1.</p>
+
+<h3>Properties</h3>
+<ol>
+    <li>A cyclic group can have more than one generator.</li>
+    <li>Every cyclic group is an abelian group.</li>
+    <li>Every subgroup of a cyclic group is a cyclic group.</li>
+    <li>In a finite cyclic group, the order of an element divides the order of the group.</li>
+</ol>
+
+<h3>Theorem (Lagrange's Theorem)</h3>
+<p>Let E be a finite group and S be a subgroup of E. Then the order of S divides the order of E, that is:</p>
+<code>|S| | |E|</code>
+<h2>Basic Number Theory and Arithmetic</h2>
+
+<h3>Integers and Divisibility</h3>
+
+<h4>Definition</h4>
+<p>
+Let <b>a</b> and <b>b</b> be two integers (elements of ℤ). We say that <b>a</b> divides <b>b</b>, and we write <code>a | b</code>, if there exists an integer <b>k</b> such that:</p>
+<code>b = a × k</code>
+
+<h4>Examples</h4>
+<ul>
+    <li>3 | 12 because there exists k = 4 such that 12 = 3 × 4.</li>
+    <li>5 ∤ 12 because there is no integer k such that 12 = 5 × k.</li>
+</ul>
+
+<h4>Properties of Divisibility</h4>
+<ul>
+    <li>If a | b and a | c, then a | (b + c) and a | (b - c).</li>
+    <li>If a | b, then a | (b × c) for any integer c.</li>
+    <li>If a | b and b | c, then a | c.</li>
+    <li>If a | b and b | a, then a = b or a = -b.</li>
+</ul>
+
+<h3>Prime and Composite Numbers</h3>
+
+<h4>Definition</h4>
+<p>An integer n > 1 is called a <b>prime number</b> if it has only 1 and itself as divisors. Otherwise, it is a <b>composite number</b>.</p>
+
+<h4>Remark</h4>
+<p>The number 1 is neither prime nor composite.</p>
+
+<h4>Examples</h4>
+<ul>
+    <li>Prime numbers: 2, 3, 5, 7, 11, 13.</li>
+    <li>Composite numbers: 4, 6, 8, 9, 10, 12.</li>
+</ul>
+
+<h3>Prime Factorization</h3>
+<p>If a number is composite, it can be factored into numbers greater than 1. These factors can be prime or composite. A factorization into primes is called <b>prime factorization</b>.</p>
+
+<h4>Theorem (Fundamental Theorem of Arithmetic)</h4>
+<p>Every integer a > 1 is either a prime number or can be written uniquely as a product of primes:</p>
+<code>a = p₁^k₁ × p₂^k₂ × … × pₙ^kₙ</code>
+<p>where p₁, p₂, …, pₙ are primes and k₁, k₂, …, kₙ are positive integers.</p>
+
+<h4>Example</h4>
+<p>Let a = 60:</p>
+<code>60 = 2 × 2 × 3 × 5 = 2² × 3 × 5</code>
+
+<h3>Greatest Common Divisor (GCD)</h3>
+<p>Let a and b be integers, not both zero. The <b>greatest common divisor</b> of a and b, denoted <code>gcd(a,b)</code>, is the greatest positive integer dividing both.</p>
+
+<h3>Least Common Multiple (LCM)</h3>
+<p>Let a and b be non-zero integers. The <b>least common multiple</b>, denoted <code>lcm(a,b)</code>, is the smallest positive integer divisible by both.</p>
+
+<h4>Examples</h4>
+<ul>
+    <li><b>GCD example:</b> a = 12, b = 18 → gcd(12,18) = 6</li>
+    <li><b>LCM example:</b> a = 12, b = 18 → lcm(12,18) = 36</li>
+</ul>
+
+<h3>Euclidean Algorithm</h3>
+<p>For integers a > b > 0, divide a by b to get remainder r:</p>
+<code>a = bq + r, 0 ≤ r < b</code>
+<p>Then gcd(a,b) = gcd(b,r). Repeat until r = 0. The last non-zero remainder is the GCD.</p>
+
+<h4>Example</h4>
+<p>Find gcd(48,18):</p>
+<code>48 = 18 × 2 + 12</code><br>
+<code>18 = 12 × 1 + 6</code><br>
+<code>12 = 6 × 2 + 0</code>
+<p>So, gcd(48,18) = 6.</p>
+
+<h3>Coprime (Relatively Prime) Integers</h3>
+<p>Two integers a and b are <b>coprime</b> if gcd(a,b) = 1.</p>
+
+<h4>Examples</h4>
+<ul>
+    <li>8 and 15 are coprime because gcd(8,15) = 1.</li>
+    <li>12 and 18 are not coprime because gcd(12,18) = 6 ≠ 1.</li>
+</ul>
+
+<h3>Bézout's Theorem</h3>
+<p>For integers a and b, there exist u and v such that:</p>
+<code>a·u + b·v = gcd(a,b)</code>
+<p>If a and b are coprime, then:</p>
+<code>a·u + b·v = 1</code>
+
+<h3>Extended Euclidean Algorithm</h3>
+<p>This finds integers u and v such that a·u + b·v = gcd(a,b).</p>
+
+<h4>Example</h4>
+<p>Find u and v for 252u + 105v = gcd(252,105):</p>
+<code>252 = 105 × 2 + 42</code><br>
+<code>105 = 42 × 2 + 21</code><br>
+<code>42 = 21 × 2 + 0</code>
+<p>So gcd(252,105) = 21. Back-substituting:</p>
+<code>21 = 105 × 5 - 252 × 2</code>
+<p>Thus, u = -2, v = 5 → 252(-2) + 105(5) = 21</p>
+    
+
+
+
+
+
+
+    <div class="lesson-1-buttons">
+    <a href="index.html" >
+        <button> Back to Home</button>
+    </a>
+   
+</div>
+
+</body>
+</html>
