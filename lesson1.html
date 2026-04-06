@@ -358,6 +358,70 @@ Let <b>a</b> and <b>b</b> be two integers (elements of ℤ). We say that <b>a</b
 <p>Let a = 60:</p>
 <code>60 = 2 × 2 × 3 × 5 = 2² × 3 × 5</code>
 
+
+  <!-- Your lesson content -->
+  <h2>Prime Factorization</h2>
+  <p>
+    Prime factorization of a number is expressing it as a product of prime numbers. 
+    For example, 60 = 2 × 2 × 3 × 5.
+  </p>
+
+  <!-- Tool goes right after the definition -->
+  <div class="card">
+    
+
+    <label>Enter a number:</label>
+    <input type="number" id="num" placeholder="Enter a positive integer">
+
+    <button onclick="checkPrime()">Check </button>
+
+    <p id="primeResult"></p>
+    <p id="factorsResult"></p>
+  </div>
+
+  <script>
+    function isPrime(n) {
+      if(n < 2) return false;
+      for(let i = 2; i*i <= n; i++){
+        if(n % i === 0) return false;
+      }
+      return true;
+    }
+
+    function primeFactors(n) {
+      let factors = [];
+      let divisor = 2;
+      while(n > 1){
+        if(n % divisor === 0){
+          factors.push(divisor);
+          n /= divisor;
+        } else {
+          divisor++;
+        }
+      }
+      return factors;
+    }
+
+    function checkPrime() {
+      let n = parseInt(document.getElementById("num").value);
+      if(isNaN(n) || n < 1){
+        document.getElementById("primeResult").innerText = "Enter a valid positive integer!";
+        document.getElementById("factorsResult").innerText = "";
+        return;
+      }
+
+      if(isPrime(n)){
+        document.getElementById("primeResult").innerText = n + " is a prime number ✅";
+      } else {
+        document.getElementById("primeResult").innerText = n + " is NOT a prime number ❌";
+      }
+
+      let factors = primeFactors(n);
+      document.getElementById("factorsResult").innerText = "Prime factors: " + factors.join(" × ");
+    }
+  </script>
+
+
 <h3>Greatest Common Divisor (GCD)</h3>
 <p>Let a and b be integers, not both zero. The <b>greatest common divisor</b> of a and b, denoted <code>gcd(a,b)</code>, is the greatest positive integer dividing both.</p>
 
@@ -369,6 +433,54 @@ Let <b>a</b> and <b>b</b> be two integers (elements of ℤ). We say that <b>a</b
     <li><b>GCD example:</b> a = 12, b = 18 → gcd(12,18) = 6</li>
     <li><b>LCM example:</b> a = 12, b = 18 → lcm(12,18) = 36</li>
 </ul>
+<div class="card">
+  <h2>GCD & LCM Calculator</h2>
+
+  <label>Enter a:</label>
+  <input type="number" id="num1" placeholder="Enter a">
+
+  <label>Enter b:</label>
+  <input type="number" id="num2" placeholder="Enter b">
+
+  <button onclick="computeGCDLCM()">Compute</button>
+
+  <p id="gcdResult"></p>
+  <p id="lcmResult"></p>
+</div>
+
+<script>
+// Euclidean Algorithm for GCD
+function gcd(a, b) {
+  while (b !== 0) {
+    let temp = b;
+    b = a % b;
+    a = temp;
+  }
+  return Math.abs(a);
+}
+
+// LCM using GCD
+function lcm(a, b) {
+  return Math.abs(a * b) / gcd(a, b);
+}
+
+function computeGCDLCM() {
+  let a = parseInt(document.getElementById("num1").value);
+  let b = parseInt(document.getElementById("num2").value);
+
+  if (isNaN(a) || isNaN(b)) {
+    document.getElementById("gcdResult").innerText = "Enter valid numbers!";
+    document.getElementById("lcmResult").innerText = "";
+    return;
+  }
+
+  let g = gcd(a, b);
+  let l = lcm(a, b);
+
+  document.getElementById("gcdResult").innerText = "gcd(a, b) = " + g;
+  document.getElementById("lcmResult").innerText = "lcm(a, b) = " + l;
+}
+</script>
 
 <h3>Euclidean Algorithm</h3>
 <p>For integers a > b > 0, divide a by b to get remainder r:</p>
@@ -417,8 +529,8 @@ Let <b>a</b> and <b>b</b> be two integers (elements of ℤ). We say that <b>a</b
 
     <div class="lesson-1-buttons">
     <a href="index.html" >
-        <button> Back to Home</button>
-    </a>
+        <button> Back to Home</button> </a>
+     
    
 </div>
 
