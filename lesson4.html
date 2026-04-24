@@ -51,18 +51,6 @@ a {
     color: #9b59b6;
     text-decoration: none;
 }
-button {
-    padding: 10px 20px;
-    background: #9b59b6;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.code-actions {
-    margin-top: 10px;
-}
 
 .code-box {
     display: none;
@@ -77,6 +65,15 @@ button {
 .code-box pre {
     margin: 0;
     font-family: Consolas, monospace;
+}
+
+button {
+    padding: 10px 20px;
+    background: #9b59b6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 </style>
 </head>
@@ -106,9 +103,7 @@ It is defined in a finite cyclic group <b>G</b>. The goal is to find an integer 
 <p>It is denoted by:</p>
 <code>x = log_g(y)</code>
 
-<p>
-We say that <b>x</b> is the discrete logarithm of <b>y</b> to the base <b>g</b>.
-</p>
+<p>We say that <b>x</b> is the discrete logarithm of <b>y</b> to the base <b>g</b>.</p>
 
 <div class="example">
 Example: Find x such that 2^x ≡ 4 mod 7
@@ -118,8 +113,7 @@ Example: Find x such that 2^x ≡ 4 mod 7
 
 <h3>Definition</h3>
 <p>
-The Diffie Hellman key exchange is a protocol in cryptography that lets two people share a secret key securely,
-even if their communication is not secure.
+The Diffie Hellman key exchange is a protocol that allows two people to share a secret key securely.
 </p>
 
 <h3>Steps</h3>
@@ -141,26 +135,22 @@ Bob computes:
 </li>
 </ol>
 
-<p><b>Shared secret:</b></p>
-<code>K_A = K_B</code>
+<p><b>Shared secret:</b> <code>K_A = K_B</code></p>
 
-<h2>ElGamal Public-Key Encryption</h2>
+<h2>ElGamal Encryption</h2>
 
 <h3>Definition</h3>
 <p>
-ElGamal is a public key encryption method based on the discrete logarithm problem.
+ElGamal is a public key encryption system based on the discrete logarithm problem.
 </p>
 
 <h3>Steps</h3>
 <ol>
 <li>Alice chooses prime <b>p</b>, generator <b>g</b>, private key <b>a</b>.</li>
-<li>
-<code>y = g^a mod p</code>
-Public key: (p, g, y)
-</li>
+<li><code>y = g^a mod p</code> (public key part)</li>
 <li>Bob chooses random <b>k</b>.</li>
 <li>
-<code>c1 = g^k mod p</code>
+<code>c1 = g^k mod p</code><br>
 <code>c2 = m · y^k mod p</code>
 </li>
 <li>Alice decrypts:
@@ -168,13 +158,13 @@ Public key: (p, g, y)
 </li>
 </ol>
 
-<h2>RSA Public-Key Encryption</h2>
+<h2>RSA Encryption</h2>
 
 <h3>Steps</h3>
 <ul>
 <li>Choose primes p and q</li>
 <li><code>n = p × q</code>, <code>φ(n) = (p − 1)(q − 1)</code></li>
-<li>Choose e with gcd(e, φ(n)) = 1</li>
+<li>Choose e such that gcd(e, φ(n)) = 1</li>
 <li>Compute d such that <code>d × e ≡ 1 mod φ(n)</code></li>
 <li>Public key: (n, e), Private key: d</li>
 <li>Encrypt: <code>c = m^e mod n</code></li>
@@ -183,12 +173,8 @@ Public key: (p, g, y)
 
 <h3>RSA Python Implementation</h3>
 
-<div class="code-actions">
-    <button onclick="toggleCode()">Show / Hide Code</button>
-</div>
-
 <div class="code-box" id="rsaBox">
-<pre id="rsaCode">
+<pre>
 import math
 
 def is_prime(x):
