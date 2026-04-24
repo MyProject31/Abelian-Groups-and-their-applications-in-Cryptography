@@ -76,7 +76,7 @@ padding:20px;
 background:#004d40;
 color:white;
 }
-/* Header */
+
 .main-header {
     background-color: #006064;
     color: white;
@@ -84,7 +84,7 @@ color:white;
     text-align: center;
 }
 
-/* محتوى داخل Header */
+
 .header-content {
     width: 80%;
     max-width: 900px;
@@ -92,8 +92,8 @@ color:white;
     position: relative;
 }
 .lesson-buttons {
-    text-align: center;       /* الأزرار في الوسط */
-    margin: 30px 0;           /* مسافة عن الدرس */
+    text-align: center;       
+    margin: 30px 0;           
 }
 
 .lesson-1- btn {
@@ -145,7 +145,7 @@ color:white;
     background-color: #3498db; /* Blue */
 }
 
-/* Default card colors for each lesson */
+
 .lesson-1 { --card-color: #3498db; }
 .lesson-2 { --card-color: #2ecc71; }
 .lesson-3 { --card-color: #e74c3c; }
@@ -164,4 +164,3 @@ color:white;
 }
 .lesson-4-btn:hover {
     background: #f1c40f;
-}
