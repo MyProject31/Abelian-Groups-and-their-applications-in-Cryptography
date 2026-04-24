@@ -51,6 +51,18 @@ a {
     color: #9b59b6;
     text-decoration: none;
 }
+button {
+    padding: 10px 20px;
+    background: #9b59b6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.code-actions {
+    margin-top: 10px;
+}
 
 .code-box {
     display: none;
@@ -65,15 +77,6 @@ a {
 .code-box pre {
     margin: 0;
     font-family: Consolas, monospace;
-}
-
-button {
-    padding: 10px 20px;
-    background: #9b59b6;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
 }
 </style>
 </head>
@@ -103,7 +106,9 @@ It is defined in a finite cyclic group <b>G</b>. The goal is to find an integer 
 <p>It is denoted by:</p>
 <code>x = log_g(y)</code>
 
-<p>We say that <b>x</b> is the discrete logarithm of <b>y</b> to the base <b>g</b>.</p>
+<p>
+We say that <b>x</b> is the discrete logarithm of <b>y</b> to the base <b>g</b>.
+</p>
 
 <div class="example">
 Example: Find x such that 2^x ≡ 4 mod 7
@@ -113,20 +118,21 @@ Example: Find x such that 2^x ≡ 4 mod 7
 
 <h3>Definition</h3>
 <p>
-The Diffie Hellman key exchange is a protocol that allows two people to share a secret key securely.
+The Diffie Hellman key exchange is a protocol in cryptography that lets two people share a secret key securely,
+even if their communication is not secure.
 </p>
 
-<h3>Steps</h3>
+<h3>Steps of the Diffie Hellman Key Exchange Protocol</h3>
 <ol>
-<li>Alice and Bob agree on a prime number <b>p</b> and generator <b>g</b>.</li>
-<li>Alice chooses private key <b>a</b>, Bob chooses <b>b</b>.</li>
+<li>Alice and Bob agree on public parameters: a large prime number <b>p</b> and a generator <b>g</b>.</li>
+<li>Alice chooses a private key <b>a</b>, and Bob chooses a private key <b>b</b>.</li>
 <li>
 Alice computes:
 <code>x = g^a mod p</code>
 Bob computes:
 <code>y = g^b mod p</code>
 </li>
-<li>They exchange values.</li>
+<li>Alice and Bob exchange their public values <b>x</b> and <b>y</b>.</li>
 <li>
 Alice computes:
 <code>K_A = y^a mod p</code>
@@ -135,22 +141,27 @@ Bob computes:
 </li>
 </ol>
 
-<p><b>Shared secret:</b> <code>K_A = K_B</code></p>
+<p><b>Shared secret:</b></p>
+<code>K_A = K_B</code>
 
-<h2>ElGamal Encryption</h2>
+<h2>ElGamal Public-Key Encryption</h2>
 
 <h3>Definition</h3>
 <p>
-ElGamal is a public key encryption system based on the discrete logarithm problem.
+ElGamal is a public key encryption method based on the discrete logarithm problem.
 </p>
 
-<h3>Steps</h3>
+<h3>Steps of the ElGamal Encryption</h3>
 <ol>
-<li>Alice chooses prime <b>p</b>, generator <b>g</b>, private key <b>a</b>.</li>
-<li><code>y = g^a mod p</code> (public key part)</li>
-<li>Bob chooses random <b>k</b>.</li>
+<li>Alice chooses a prime <b>p</b> and generator <b>g</b>.</li>
+<li>Alice chooses private key <b>a</b>.</li>
 <li>
-<code>c1 = g^k mod p</code><br>
+<code>y = g^a mod p</code>
+Public key: (p, g, y)
+</li>
+<li>Bob encrypts message <b>m</b> using random <b>k</b>.</li>
+<li>
+<code>c1 = g^k mod p</code>
 <code>c2 = m · y^k mod p</code>
 </li>
 <li>Alice decrypts:
@@ -158,14 +169,18 @@ ElGamal is a public key encryption system based on the discrete logarithm proble
 </li>
 </ol>
 
-<h2>RSA Encryption</h2>
+<h2>RSA Public-Key Encryption</h2>
 
-<h3>Steps</h3>
+<p>
+RSA is a public key cryptosystem.
+</p>
+
+<h3>Steps of RSA Public Key Encryption</h3>
 <ul>
-<li>Choose primes p and q</li>
+<li>Choose primes p and q.</li>
 <li><code>n = p × q</code>, <code>φ(n) = (p − 1)(q − 1)</code></li>
 <li>Choose e such that gcd(e, φ(n)) = 1</li>
-<li>Compute d such that <code>d × e ≡ 1 mod φ(n)</code></li>
+<li>Compute <code>d × e ≡ 1 mod φ(n)</code></li>
 <li>Public key: (n, e), Private key: d</li>
 <li>Encrypt: <code>c = m^e mod n</code></li>
 <li>Decrypt: <code>m = c^d mod n</code></li>
@@ -173,8 +188,13 @@ ElGamal is a public key encryption system based on the discrete logarithm proble
 
 <h3>RSA Python Implementation</h3>
 
+<div class="code-actions">
+    <button onclick="toggleCode()">Show / Hide Code</button>
+    <button onclick="copyCode()">Copy Code</button>
+</div>
+
 <div class="code-box" id="rsaBox">
-<pre>
+<pre id="rsaCode">
 import math
 
 def is_prime(x):
@@ -236,6 +256,12 @@ print("Decrypted message:", decrypted)
 function toggleCode() {
     let box = document.getElementById("rsaBox");
     box.style.display = (box.style.display === "block") ? "none" : "block";
+}
+
+function copyCode() {
+    let code = document.getElementById("rsaCode").innerText;
+    navigator.clipboard.writeText(code);
+    alert("Code copied!");
 }
 </script>
 
