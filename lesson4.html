@@ -94,19 +94,282 @@ button {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <h2>Discrete Logarithm Problem</h2>
+
+<h3>Definition</h3>
+<p>
+The discrete logarithm problem is a fundamental hard problem in cryptography. 
+It is defined in a finite cyclic group <b>G</b>. The goal is to find an integer <b>x</b> such that:
+</p>
+
+<code>g^x = y</code>
+
+<p>where <b>y ∈ G</b> and <b>g</b> is a generator of <b>G</b>.</p>
+
+<p>It is denoted by:</p>
+<code>x = log_g(y)</code>
+
+<p>
+We say that <b>x</b> is the discrete logarithm of <b>y</b> to the base <b>g</b>.
+</p>
+
+<div class="example">
+Example: Find x such that 2^x ≡ 4 mod 7
+</div>
 
 
 <h2>Diffie Hellman Key Exchange</h2>
 
+<h3>Definition</h3>
+<p>
+The Diffie Hellman key exchange is a protocol in cryptography that lets two people share a secret key securely,
+even if their communication is not secure.
+</p>
+
+<h3>Steps of the Diffie Hellman Key Exchange Protocol</h3>
+<ol>
+<li>Alice and Bob agree on public parameters: a large prime number <b>p</b> and a generator <b>g</b>.</li>
+
+<li>Alice chooses a private key <b>a</b>, and Bob chooses a private key <b>b</b>.</li>
+
+<li>
+Alice computes:
+<code>x = g^a mod p</code>
+Bob computes:
+<code>y = g^b mod p</code>
+</li>
+
+<li>Alice and Bob exchange their public values <b>x</b> and <b>y</b>.</li>
+
+<li>Alice receives <b>y</b>, and Bob receives <b>x</b>.</li>
+
+<li>
+Alice computes:
+<code>K_A = y^a mod p</code>
+Bob computes:
+<code>K_B = x^b mod p</code>
+</li>
+</ol>
+
+<p>
+As a result, Alice and Bob obtain the same shared secret key:
+</p>
+
+<code>K_A = K_B</code>
+
+<p>This key is used for encryption.</p>
+
 
 <h2>ElGamal Public-Key Encryption</h2>
+
+<h3>Definition</h3>
+<p>
+ElGamal is a public key encryption method based on the discrete logarithm problem.
+It uses a group <b>G</b> and a generator <b>g</b>.
+</p>
+
+<h3>Steps of the ElGamal Encryption</h3>
+<ol>
+
+<li>Alice chooses a large prime number <b>p</b> and a generator <b>g</b>.</li>
+
+<li>Alice chooses a private key <b>a</b>.</li>
+
+<li>
+Alice computes:
+<code>y = g^a mod p</code>
+Public key: (p, g, y)<br>
+Private key: a
+</li>
+
+<li>Bob wants to send a message <b>m</b>. He chooses a random number <b>k</b>.</li>
+
+<li>
+Bob computes:
+<code>c1 = g^k mod p</code>
+<code>c2 = m · y^k mod p</code>
+</li>
+
+<li>Bob sends the ciphertext (c1, c2) to Alice.</li>
+
+<li>
+Alice decrypts:
+<code>m = c2 · (c1^a)^(-1) mod p</code>
+</li>
+
+</ol>
 
 
 <h2>RSA Public-Key Encryption</h2>
 
+<p>
+RSA is a public key cryptosystem. It is named after its inventors Rivest, Shamir, and Adleman.
+</p>
+
+<h3>Steps of RSA Public Key Encryption</h3>
+<ul>
+
+<li>Alice asks Bob to create a public key and a private key.</li>
+
+<li>
+Bob chooses two prime numbers p and q.<br>
+<code>n = p × q</code><br>
+<code>φ(n) = (p − 1)(q − 1)</code>
+</li>
+
+<li>
+Bob chooses e such that:
+<code>1 &lt; e &lt; φ(n)</code> and gcd(e, φ(n)) = 1
+</li>
+
+<li>
+Bob computes:
+<code>d × e ≡ 1 mod φ(n)</code>
+</li>
+
+<li>
+Public key: (n, e)<br>
+Private key: d
+</li>
+
+<li>
+Alice encrypts:
+<code>c = m^e mod n</code>
+</li>
+
+<li>
+Bob decrypts:
+<code>m = c^d mod n</code>
+</li>
+
+</ul>
 
 <h3>RSA Python Implementation</h3>
+
+<p>This is a Python implementation of RSA encryption and decryption:</p>
+
+<div class="code-box">
+<pre>
+import math
+
+# check ifa given number is prime
+def is_prime(x):
+    if x < 2:
+        return False
+    for i in range(2, int(math.sqrt(x)) + 1):
+        if x % i == 0:
+            return False
+    return True
+
+# calculate gcd
+def gcd(a, b):
+    if b == 0:
+        return a
+    return gcd(b, a % b)
+
+# modular inverse
+def mod_inverse(e, phi):
+    d = 1
+    while (d * e) % phi != 1:
+        d += 1
+    return d
+
+p = int(input("Enter a prime number p: "))
+q = int(input("Enter a prime number q: "))
+
+if not is_prime(p) or not is_prime(q):
+    print("Error: p and q must be prime numbers!")
+    exit()
+
+n = p * q
+phi = (p - 1) * (q - 1)
+
+e = 3
+while gcd(e, phi) != 1:
+    e += 2
+
+d = mod_inverse(e, phi)
+
+print("Public key:", (e, n))
+print("Private key:", (d, n))
+
+message = input("Enter  message: ")
+encrypted = []
+
+for ch in message:
+    encrypted.append((ord(ch) ** e) % n)
+
+print("Encrypted  message:", encrypted)
+
+decrypted = ""
+
+for num in encrypted:
+    decrypted += chr((num ** d) % n)
+
+print("Decrypted message:", decrypted)
+</pre>
+</div>
+
+
+
+
+
+
+
+
+    
+
+<div style="text-align:center; margin-top:20px;">
+    <a href="index.html">
+        <button>Back to Home</button>
+    </a>
+</div>
+
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
 
 <p>This is a Python implementation of RSA encryption and decryption:</p>
 
