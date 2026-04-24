@@ -15,7 +15,6 @@ header p{
 margin-top:10px;
 }
 
-/* HOME PAGE GRID */
 .container{
 width:80%;
 margin:50px auto;
@@ -24,7 +23,7 @@ grid-template-columns:1fr 1fr;
 gap:30px;
 }
 
-/* CARDS */
+
 .card{
 padding:35px;
 border-radius:15px;
@@ -46,7 +45,7 @@ box-shadow:0 15px 30px rgba(0,0,0,0.2);
 margin-bottom:10px;
 }
 
-/* LINKS INSIDE CARDS (HOME PAGE BUTTONS) */
+
 .card a{
 display:inline-block;
 margin-top:15px;
@@ -63,7 +62,7 @@ transition:0.3s;
 background:#00838f;
 }
 
-/* FOOTER */
+
 footer{
 margin-top:40px;
 padding:20px;
@@ -71,7 +70,7 @@ background:#004d40;
 color:white;
 }
 
-/* HEADER VARIATION (if used) */
+
 .main-header {
 background-color: #006064;
 color: white;
@@ -86,18 +85,18 @@ margin: 0 auto;
 position: relative;
 }
 
-/* LESSON PAGE BUTTON CONTAINER */
+
 .lesson-buttons {
 text-align: center;
 margin: 30px 0;
 }
 
-/* ✅ CORRECT BUTTON STYLE (ALL LESSONS) */
+
 .lesson-btn {
 display: inline-block;
 margin: 0 10px;
 padding: 12px 25px;
-background: #e74c3c;   /* default red */
+background: #e74c3c;   
 color: white;
 border-radius: 8px;
 text-decoration: none;
@@ -109,13 +108,12 @@ transition: 0.3s;
 opacity: 0.85;
 }
 
-/* OPTIONAL: different colors per lesson (if you use extra classes) */
+
 .lesson-btn.lesson1 { background:#3498db; }
 .lesson-btn.lesson2 { background:#2ecc71; }
 .lesson-btn.lesson3 { background:#e74c3c; }
 .lesson-btn.lesson4 { background:#f1c40f; }
 
-/* FIXED container style for lessons (if needed) */
 .lesson-container {
 width: 80%;
 margin: auto;
